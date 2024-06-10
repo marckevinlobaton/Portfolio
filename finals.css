@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins' , sans-serif;
+}
+html,body {
+    background-color: #FAF9F6;   
+    width: 100%;     
+}
+
+li,a{
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+    text-decoration: none;
+}
+header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+.logo {
+    font-size: 30px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+}
+.navbar {
+    list-style: none;
+       
+}
+.navbar li {
+    display: inline-block;
+    padding: 0px 10px;
+}
+.navbar li a {
+    transition: all 0.3s ease 0.s;
+}
+.navbar li a:hover {
+    color: #3bd6c6;
+}
+
+button {
+ padding: 9px 25px;
+ font-size: 16px;
+ border: unset;
+ border-radius: 50px;
+ box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+ color: #212121;
+ z-index: 1;
+ background: #3bd6c6;
+ position: relative;
+ transition: all 250ms;
+ overflow: hidden;
+}
+
+button::before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 0px;
+ border-radius: 15px;
+ background-color: #212121;
+ z-index: -1;
+ transition: all 250ms;
+}
+
+button:hover {
+ color: #ffffff;
+}
+
+button:hover::before {
+ width: 100%;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-right: auto;
+    margin-left: auto;
+    grid-column-gap: 0px;
+    grid-row-gap: 20px;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+@keyframes typewriter 
+{ from 
+  { 
+       width: 0; 
+  } 
+  to 
+  {
+       width: 15%; 
+  } }
+.typewriter-text {
+    font-size: 40px;
+    font-weight: 700;
+    border-right: .10em solid #3bd6c6;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typewriter 4s steps(3) infinite alternate;
+    overflow: hidden;
+}
+.typewriter-text {
+   width: 100%;
+   padding: 20px;
+}
+.card {
+  box-sizing: border-box;
+  width: 200px;
+  height: 268px;  
+  background: rgba(217, 217, 217, 0.411);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(49, 49, 49, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  align-items: center;
+  justify-content: justify;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+  margin: 50px;
+  overflow: hidden;
+}
+
+.card:hover {
+  border: 4px solid #3bd6c6;
+  transform: scale(1.05);
+}
+
+.card:active {
+  transform: scale(0.95) rotateZ(1.7 50%);
+}
