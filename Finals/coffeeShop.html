@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #6F4E37;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+        }
+        .container h1 {
+            margin-bottom: 20px;
+        }
+        .container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .container input[type="name"],
+        .container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            border: 1px solid #c0c0c0;
+                                                                                                                                                                                                                                                                                                                                                                                                    outline: 0 !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                box-sizing: border-box;
+                                                                                                                                                                                                                                                                                                                                                                                                                            padding: 12px 15px;
+        }
+        .container button {
+            padding: 10px 15px;
+            background-color: #212121;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #ECB176;
+        }
+        .order-list {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+        }
+        .order-list h2 {
+            margin-bottom: 20px;
+        }
+        .order-list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .order-list table, .order-list th, .order-list td {
+            border: 1px solid #ccc;
+        }
+        .order-list th, .student-list td {
+            padding: 10px;
+            text-align: left;
+        }
+        button.deleteBtn {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Coffee Shop</h1>
+        <form id="orderForm">
+            <label for="coffee">Types of Coffee</label>
+            <input type="name" id="name" name="name" placeholder="Enter your coffee" required>
+
+            <label for="sugar">Sugar Level</label>
+            <select  id="sugar" name="sugar" required>
+            <option disabled selected value>select a sugar level</option>
+            <option value="0%">0%</option>
+            <option value="30%">30%</option>
+            <option value="50%">50%</option>
+            <option value="80%">80%</option>
+            <option value="100%">100%</option>
+            </select>
+            <label for="size">Size</label>
+            <select id="size" name="size" required>
+                <option disabled selected value>select a size</option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+        
+            </select>
+
+            <button type="submit">Order</button>
+        </form>
+    </div>
+
+    <div class="order-list">
+        <h2>Orders</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Types of Coffee</th>
+                    <th>Sugar Level</th>
+                    <th>Size</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="orderTableBody">
+                
+             </tbody>    
+           
+        </table>
+    </div>
+
+    <script>
+         document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            const name = document.getElementById('name').value;
+            const sugar = document.getElementById('sugar').value;
+            const size = document.getElementById('size').value;
+
+            const order = {
+                name: name,
+                sugar: sugar,
+                size: size
+            };
+
+            // Get existing orders from localStorage
+            let orders = localStorage.getItem('orders');
+            if (orders) {
+                orders = JSON.parse(orders);
+            } else {
+                orders = [];
+            }
+
+            // Add new order to the array
+            orders.push(order);
+
+            // Save updated orders array back to localStorage
+            localStorage.setItem('orders', JSON.stringify(orders));
+
+            // Clear the form
+            document.getElementById('orderForm').reset();
+
+            // Update the order list display
+            displayOrders();
+
+            alert('Orders is successfully!');
+        });
+
+        function displayOrders() {
+            const orderTableBody = document.getElementById('orderTableBody');
+            orderTableBody.innerHTML = '';
+
+            // Get orders from localStorage
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+            // Display each order in the table
+            orders.forEach((order, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${order.name}</td>
+                    <td>${order.sugar}</td>
+                    <td>${order.size}</td>
+                `;
+             // Delete the data order on the table
+               const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.className = 'deleteBtn';
+        deleteButton.onclick = function(r) {
+            const row = this.parentNode.parentNode.rowIndex;
+            
+                                 document.getElementById("orderTableBody").deleteRow(row);
+
+localStorage.setItem('orders', JSON.stringify(orders));      
+       
+        //Delete orders to tha local storage
+        
+        localStorage.clear();           
+        };
+
+        row.appendChild(deleteButton);
+ orderTableBody.appendChild(row);
+ 
+            });
+        } 
+        
+     </script>
+</body>
+</html>    
