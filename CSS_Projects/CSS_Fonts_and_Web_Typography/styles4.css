@@ -1,0 +1,18 @@
+.special-paragraph1 {
+    font-family: 'Roboto' , sans-serif;
+    font-weight: 400px;
+    font-size: 16px;
+    color: rgb(51,3,0);
+}
+.special-paragraph2 {
+    font-family: 'Open Sans' , sans-serif;
+    font-weight: 400px;
+    font-size: 16px;
+    color: rgb(102,6,0);
+}
+.special-paragraph3 {
+    font-family: 'Montserrat' , sans-serif;
+    font-weight: 400px;
+    font-size: 16px;
+    color: rgb(153,153,153);
+}

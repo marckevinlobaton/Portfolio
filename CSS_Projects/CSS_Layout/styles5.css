@@ -1,0 +1,31 @@
+body{
+    margin-top: 0px;
+    width: 600px;
+    text-align: center;
+}
+.header{
+    height: 60px;
+    background-color: #B4B4B8;
+}
+.nav{
+    height: 40px;
+    background-color: #C7C8CC;
+}
+.main{
+    display: flex;
+    height: 300px;
+}
+.section1, .section2{
+    padding-top: 10px;
+    width: 300px;
+}
+.section1 {
+    background-color: #E3E1D9;
+}
+.section2 {
+     background-color: #F2EFE5; 
+ }
+.footer{
+    height: 40px;
+    background-color: #E3E1D9;
+}

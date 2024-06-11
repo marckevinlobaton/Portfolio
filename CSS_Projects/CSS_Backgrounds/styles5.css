@@ -1,0 +1,23 @@
+.header {
+    background-color: #333;
+    color: #fff;
+}
+.section-1 {
+    background-image:  url("path/to/image1.jpg");
+    background-size: cover;
+}
+.section-2 {
+    background-image: linear-gradient(#ffcc00, #333);
+}
+.section-3 {
+    background-image:  url("path/to/image2.jpg");
+    color: #333;
+}
+.section-4 {
+    background-image: radial-gradient(#0000ff, transparent);
+    color: #333;
+}
+.footer {
+    background-color: #333;
+    color: #fff;
+}

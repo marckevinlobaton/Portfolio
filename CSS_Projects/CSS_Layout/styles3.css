@@ -1,0 +1,9 @@
+.column-container{
+    display: block; 
+    width: 600px;
+}
+.column{
+    width: 200px;
+    display: inline;
+    background-color: lightgray;
+}
